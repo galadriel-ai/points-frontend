@@ -10,6 +10,21 @@ import { useAccount, useDisconnect, useSignMessage } from "wagmi";
 
 import { Button } from "@/components/ui/button";
 
+const fetchNonceAndIssuedAt = async (url: string, walletAddress: string) => {
+  const token = Cookies.get("authToken");
+  const response = await fetch(url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+      Authorization: token || "",
+    },
+    body: JSON.stringify({ wallet_address: walletAddress }),
+  });
+
+  return response;
+};
+
 const linkWallet = async (
   url: string,
   walletAddress: string,
@@ -47,21 +62,11 @@ export default function ConnectWallet() {
     const connectWalletFlow = async () => {
       setIsRunning(true);
       if (isConnected && accountAddress) {
-        const token = Cookies.get("authToken");
-
         const checksumAddress = getAddress(accountAddress);
 
-        await fetch(
+        await fetchNonceAndIssuedAt(
           `${process.env.NEXT_PUBLIC_API_BASE_URL}/v1/auth/eth/nonce`,
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              Accept: "application/json",
-              Authorization: token || "",
-            },
-            body: JSON.stringify({ wallet_address: checksumAddress }),
-          }
+          checksumAddress
         ).then((response) => {
           if (response.ok) {
             response
