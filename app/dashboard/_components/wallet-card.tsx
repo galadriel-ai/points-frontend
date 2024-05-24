@@ -18,7 +18,7 @@ export default function WalletCardNew({
   return (
     <div
       className={cn(
-        `relative max-sm:w-full max-h-[434px] border border-primary-border rounded-lg flex flex-col justify-center gap-y-[60px] max-sm:gap-y-[30px] items-center w-[320px] backdrop-blur-2xl ${
+        `relative max-sm:w-full border border-primary-border rounded-lg flex flex-col justify-center gap-y-[60px] max-sm:gap-y-[30px] items-center w-[320px] backdrop-blur-2xl ${
           isCompleted
             ? "bg-[#D8E6FF] px-5 py-[80px] max-h-[434px] max-sm:px-4 max-sm:py-14"
             : "bg-primary-foreground px-5 pt-[80px] pb-10 max-sm:pt-14 max-sm:px-4 max-sm:pb-4"
