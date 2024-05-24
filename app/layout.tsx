@@ -39,7 +39,7 @@ export default function RootLayout({
       <head />
       <body
         className={cn(
-          "min-h-dvh min-w-[20rem] bg-primary font-mono antialiased relative",
+          "min-h-dvh min-w-[20rem] bg-primary font-mono antialiased relative overflow-x-clip",
           mondwest.variable,
           neuebit.variable,
           fontMono.variable
