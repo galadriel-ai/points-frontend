@@ -41,7 +41,7 @@ export default function HeroSection() {
           </p>
         </div>
 
-        {/* Get earning points button */}
+        {/* Start earning points button */}
         <Button
           className="font-neuebit mx-auto h-auto w-auto max-md:w-full px-10 bg-primary-foreground text-primary hover:bg-primary-hover rounded-none text-4xl max-sm:2xl max-md:text-3xl font-medium shadow-md"
           asChild
@@ -50,7 +50,7 @@ export default function HeroSection() {
             target="_blank"
             href={`${process.env.NEXT_PUBLIC_API_BASE_URL}/v1/auth/x/login`}
           >
-            Get earning points
+            Start earning points
           </Link>
         </Button>
       </div>
