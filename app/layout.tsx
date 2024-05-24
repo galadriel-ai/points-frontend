@@ -90,7 +90,7 @@ export const metadata: Metadata = {
   title: "Galadriel",
   description: "The first L1 blockchain for AI",
   authors: [{ name: "Arunavo Ray", url: "https://www.arunavoray.dev/" }],
-  keywords: ["galadriel", "blockchain", "ai", "L1 blockchain", "etherium"],
+  keywords: ["galadriel", "blockchain", "ai", "L1 blockchain", "ethereum"],
   publisher: "Galadriel",
   openGraph: {
     title: "Galadriel",
