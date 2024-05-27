@@ -7,10 +7,10 @@ export default function HeroSection() {
     <div className="w-full h-[calc(100dvh-100px)] sm:h-[calc(100dvh-108px)] xl:h-[calc(100dvh-295px)]">
       {/* main contents */}
       <div className="h-full flex flex-col justify-center gap-y-20">
-        {/* Begin earning gem points today */}
+        {/* Start earning Gem Points today */}
         <div className="flex flex-col justify-center items-center gap-y-2">
           <p className="text-center text-primary-foreground font-medium sm:text-base md:text-lg lg:text-xl">
-            Begin earning gem points today
+            Start earning Gem Points today
           </p>
           <svg
             width="66"
@@ -34,9 +34,10 @@ export default function HeroSection() {
           <p className="text-center text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl">
             <span>
               Become part of a mission to enable a safe, user-owned AI.
-            </span>
+            </span>{" "}
             <span>
-              Participate in the network, join the community & spread the word.
+              Participate in the network, join the community & build on-chain
+              AI.
             </span>
           </p>
         </div>

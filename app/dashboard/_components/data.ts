@@ -25,7 +25,7 @@ export const wandererData: QuestData[] = [
     xp: 0,
     title: "gem points",
     icon: HeartIcon,
-    description: "Use the faucet to get funds of devnet",
+    description: "Use the faucet to get funds on Galadriel devnet",
     tip: "Use faucet",
     link: process.env.NEXT_PUBLIC_FAUCET_URL!,
     taskName: "used_faucet",
