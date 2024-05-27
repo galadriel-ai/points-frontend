@@ -94,13 +94,13 @@ export const metadata: Metadata = {
   publisher: "Galadriel",
   openGraph: {
     title: "Galadriel",
-    url: `https://${process.env.NEXT_PUBLIC_WEBSITE_DOMAIN}`,
+    url: `${process.env.NEXT_PUBLIC_WEBSITE_URL}`,
     siteName: "Galadriel | The first L1 blockchain for AI",
     locale: "en_US",
     type: "website",
     images: [
       {
-        url: `https://${process.env.NEXT_PUBLIC_WEBSITE_DOMAIN}/api/og`,
+        url: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/api/og`,
         width: 1200,
         height: 630,
         alt: "Galadriel | The first L1 blockchain for AI",
@@ -121,14 +121,14 @@ export const metadata: Metadata = {
     creator: "@Galadriel_AI",
   },
   icons: {
-    shortcut: `https://${process.env.NEXT_PUBLIC_WEBSITE_DOMAIN}/favicons/favicon.ico`,
+    shortcut: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/favicons/favicon.ico`,
   },
   appleWebApp: {
     capable: true,
     title: "Galadriel",
   },
   alternates: {
-    canonical: `https://${process.env.NEXT_PUBLIC_WEBSITE_DOMAIN}`,
+    canonical: `${process.env.NEXT_PUBLIC_WEBSITE_URL}`,
   },
 };
 
