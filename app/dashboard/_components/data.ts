@@ -91,13 +91,14 @@ export const masterBuildData: MasterBuildData[] = [
     xp: 200,
     title: "gem points",
     icon: ContentIcon,
-    description: "Create content about Galadriel : X threads, memes, etc.",
+    description:
+      "Create Galadriel content: art, memes, X thread, blog post, etc.",
   },
   {
     xp: 200,
     title: "gem points",
     icon: SunGlassIcon,
     description:
-      "Vibe in Galadriel Discord, discuss Web3xAI and be supportive to others",
+      "Vibe with Galadrians, discuss Web3xAI and welcome newcomers on our Discord",
   },
 ];
