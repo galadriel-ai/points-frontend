@@ -73,7 +73,7 @@ export default function ConnectWallet() {
               .json()
               .then((nonceData: { nonce: string; issued_at: string }) => {
                 // Set SIWE message
-                const message = `galadriel.com wants you to sign in with your Ethereum account:\n${checksumAddress}\n\n\nURI: ${process.env.NEXT_PUBLIC_API_BASE_URL}\nVersion: 1\nChain ID: 1\nNonce: ${nonceData.nonce}\nIssued At: ${nonceData.issued_at}`;
+                const message = `${process.env.NEXT_PUBLIC_WEBSITE_DOMAIN} wants you to sign in with your Ethereum account:\n${checksumAddress}\n\n\nURI: ${process.env.NEXT_PUBLIC_API_BASE_URL}\nVersion: 1\nChain ID: 1\nNonce: ${nonceData.nonce}\nIssued At: ${nonceData.issued_at}`;
                 // Sign message
                 signMessage(
                   { message },
