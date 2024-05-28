@@ -1,13 +1,13 @@
-import { StaticImageData } from "next/image";
+import { StaticImageData } from 'next/image';
 
-import CodingIcon from "@/public/assets/quests/coding.svg";
-import ContactIcon from "@/public/assets/quests/contact.svg";
-import ContentIcon from "@/public/assets/quests/content.svg";
-import DiscordIcon from "@/public/assets/quests/discord.svg";
-import FlashIcon from "@/public/assets/quests/flash.svg";
-import HeartIcon from "@/public/assets/quests/heart.svg";
-import SunGlassIcon from "@/public/assets/quests/sunglass.svg";
-import XIcon from "@/public/assets/quests/x.svg";
+import CodingIcon from '@/public/assets/quests/coding.svg';
+import ContactIcon from '@/public/assets/quests/contact.svg';
+import ContentIcon from '@/public/assets/quests/content.svg';
+import DiscordIcon from '@/public/assets/quests/discord.svg';
+import FlashIcon from '@/public/assets/quests/flash.svg';
+import HeartIcon from '@/public/assets/quests/heart.svg';
+import SunGlassIcon from '@/public/assets/quests/sunglass.svg';
+import XIcon from '@/public/assets/quests/x.svg';
 
 export interface QuestData {
   xp: number;
@@ -57,7 +57,7 @@ export const discordData: QuestData = {
   description: "Connect Discord",
   tip: "Connect",
   isCompleted: false,
-  link: `${process.env.NEXT_PUBLIC_API_BASE_URL}/v1/auth/discord/link`,
+  link: process.env.NEXT_PUBLIC_DISCORD_URL!,
   taskName: "join_discord",
 };
 

@@ -1,4 +1,6 @@
 "use client";
+import { useState } from "react";
+
 import Cookies from "js-cookie";
 import Image from "next/image";
 import { useSWRConfig } from "swr";
@@ -25,6 +27,12 @@ const DiscordCard: React.FC<DiscordCardProps> = ({ quest, className }) => {
     link,
   } = quest;
   const { mutate } = useSWRConfig();
+  const [buttonText, setButtonText] = useState("Connect");
+
+  const handleConnectButtonClick = () => {
+    window.open(link, "_blank");
+    setButtonText("Check Discord");
+  };
 
   const handleButtonClick = async (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
@@ -34,13 +42,16 @@ const DiscordCard: React.FC<DiscordCardProps> = ({ quest, className }) => {
     try {
       const data = await mutate(link, async () => {
         const token = Cookies.get("authToken");
-        const response = await fetch(link || "", {
-          method: "GET",
-          headers: {
-            Accept: "application/json",
-            Authorization: `${token}`,
-          },
-        });
+        const response = await fetch(
+          `${process.env.NEXT_PUBLIC_API_BASE_URL}/v1/auth/discord/link`,
+          {
+            method: "GET",
+            headers: {
+              Accept: "application/json",
+              Authorization: `${token}`,
+            },
+          }
+        );
 
         if (response.ok) {
           return await response.json();
@@ -98,14 +109,22 @@ const DiscordCard: React.FC<DiscordCardProps> = ({ quest, className }) => {
       {!isCompleted && (
         <>
           <Button
-            onClick={handleButtonClick}
+            onClick={
+              buttonText === "Connect"
+                ? handleConnectButtonClick
+                : handleButtonClick
+            }
             className="rounded-none font-neuebit hidden w-full py-8 max-sm:py-6 max-sm:flex justify-center items-center bg-primary-foreground text-2xl text-primary hover:bg-primary-hover"
           >
-            {tip}
+            {buttonText}
           </Button>
           <div className="group max-sm:hidden absolute z-10 right-0 -bottom-5">
             <Button
-              onClick={handleButtonClick}
+              onClick={
+                buttonText === "Connect"
+                  ? handleConnectButtonClick
+                  : handleButtonClick
+              }
               className="max-sm:hidden max-sm:text-sm text-base relative z-10 px-5 py-6 rounded-none bg-primary-foreground text-primary hover:bg-primary-foreground hover:text-primary font-medium hover:translate-y-2 transform-gpu will-change-transform transition-transform"
             >
               <svg
@@ -121,13 +140,17 @@ const DiscordCard: React.FC<DiscordCardProps> = ({ quest, className }) => {
                   fill="#F8F8F8"
                 />
               </svg>
-              {tip}
+              {buttonText}
             </Button>
             <Button
-              onClick={handleButtonClick}
+              onClick={
+                buttonText === "Connect"
+                  ? handleConnectButtonClick
+                  : handleButtonClick
+              }
               className="max-sm:text-sm text-base absolute z-0 -right-3 -bottom-3 px-5 py-6 rounded-none bg-[#14368F] text-[#14368F] font-medium opacity-0 group-hover:opacity-100 group-hover:translate-y-2 group-hover:transition-all pointer-events-none"
             >
-              {tip}
+              {buttonText}
             </Button>
           </div>
         </>
