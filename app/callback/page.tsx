@@ -1,11 +1,17 @@
 "use client";
 
-import { Suspense, useEffect } from "react";
+import {
+  Suspense,
+  useEffect,
+} from 'react';
 
-import Cookies from "js-cookie";
-import { jwtDecode } from "jwt-decode";
-import { useRouter, useSearchParams } from "next/navigation";
-import { toast } from "sonner";
+import Cookies from 'js-cookie';
+import { jwtDecode } from 'jwt-decode';
+import {
+  useRouter,
+  useSearchParams,
+} from 'next/navigation';
+import { toast } from 'sonner';
 
 const Callback = () => {
   const searchParams = useSearchParams();
@@ -13,8 +19,16 @@ const Callback = () => {
 
   useEffect(() => {
     const token = searchParams.get("token");
+    const error = searchParams.get("error");
 
-    if (token && typeof token === "string") {
+    if (error && typeof error === "string" && error.length > 0) {
+      if (error === "no_access") {
+        toast.error("Sorry! You're not on the Whitelist.");
+      } else {
+        toast.error(`Error: ${error}`);
+      }
+      router.push("/");
+    } else if (token && typeof token === "string") {
       try {
         // Decode the token to get the expiration time
         const decodedToken = jwtDecode<{ exp: number }>(token);
@@ -36,10 +50,12 @@ const Callback = () => {
           router.push("/dashboard/quests");
         }, 5000);
       } catch (error) {
+        router.push("/");
         console.error("Invalid token format", error);
         toast.error("Invalid token format");
       }
     } else {
+      router.push("/");
       console.error("Token is missing or invalid");
       toast.error("Token is missing or invalid");
     }
