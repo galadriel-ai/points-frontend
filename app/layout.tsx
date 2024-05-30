@@ -1,15 +1,16 @@
-import "@/app/globals.css";
+import '@/app/globals.css';
 
-import { Metadata, Viewport } from "next";
-import { IBM_Plex_Mono as FontMono } from "next/font/google";
-import localFont from "next/font/local";
+import {
+  Metadata,
+  Viewport,
+} from 'next';
+import { IBM_Plex_Mono as FontMono } from 'next/font/google';
+import localFont from 'next/font/local';
 
-import Footer from "@/app/common/footer";
-import DesktopNav from "@/app/common/navbar";
-import { Toaster } from "@/components/ui/sonner";
-import { cn } from "@/lib/utils";
+import { Toaster } from '@/components/ui/sonner';
+import { cn } from '@/lib/utils';
 
-import { Provider } from "./provider";
+import { Provider } from './provider';
 
 const mondwest = localFont({
   src: "./fonts/PPMondwest-Regular.otf",
@@ -45,6 +46,7 @@ export default function RootLayout({
           fontMono.variable
         )}
       >
+        {/* BG Galadriel SVG */}
         <svg
           width="1728"
           height="764"
@@ -74,9 +76,10 @@ export default function RootLayout({
         </svg>
         <Provider>
           <div className="relative flex flex-col justify-center items-center min-h-dvh z-20">
-            <DesktopNav />
+            {/* TODO:Moved Footer and Nav to Dashboard */}
+            {/* <DesktopNav /> */}
             {children}
-            <Footer />
+            {/* <Footer /> */}
           </div>
         </Provider>
         <Toaster />

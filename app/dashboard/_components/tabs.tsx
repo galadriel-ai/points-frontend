@@ -1,6 +1,6 @@
-import Link from "next/link";
+import Link from 'next/link';
 
-import { Button } from "@/components/ui/button";
+import { Button } from '@/components/ui/button';
 
 interface TabsProps {
   activeTab: "quests" | "run-a-node" | "leaderboard";
@@ -22,12 +22,13 @@ function Tabs({ activeTab, disabledTab }: TabsProps) {
       href: "/dashboard/run-a-node",
       roundedClass: "rounded-none",
     },
-    {
-      name: "leaderboard",
-      label: "Leaderboard",
-      href: "/dashboard/leaderboard",
-      roundedClass: "md:rounded-r-md",
-    },
+    // TODO: Disabled for now
+    // {
+    //   name: "leaderboard",
+    //   label: "Leaderboard",
+    //   href: "/dashboard/leaderboard",
+    //   roundedClass: "md:rounded-r-md",
+    // },
   ];
 
   return (
@@ -41,7 +42,8 @@ function Tabs({ activeTab, disabledTab }: TabsProps) {
             <Button
               key={tab.name}
               variant="ghost"
-              className={`relative group w-1/3 py-8 font-neuebit text-4xl max-md:text-3xl max-sm:text-2xl rounded-none ${
+              // TODO: Make w-1/3
+              className={`relative group w-1/2 py-8 font-neuebit text-4xl max-md:text-3xl max-sm:text-2xl rounded-none ${
                 isActive
                   ? "bg-primary-foreground text-primary hover:text-primary"
                   : "bg-transparent text-primary-foreground hover:text-primary-hover hover:bg-primary"
