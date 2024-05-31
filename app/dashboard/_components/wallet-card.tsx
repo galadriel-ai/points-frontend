@@ -47,9 +47,10 @@ export default function WalletCardNew({
         <p className="text-center text-primary mt-5 max-sm:text-sm">
           Connect ETH wallet
         </p>
-        <p className="text-center text-[#5B98FF] max-sm:text-sm">
+        {/* TODO: Temporarily disable this */}
+        {/* <p className="text-center text-[#5B98FF] max-sm:text-sm">
           Must have at least 0.1 ETH
-        </p>
+        </p> */}
       </div>
       {!isCompleted && <ConnectWallet />}
     </div>
